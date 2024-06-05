@@ -1,0 +1,30 @@
+{
+  "name": "karen",
+  "version": "1.0.0",
+  "description":"myapi",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "SET NODE_ENV=development && nodemon --exec babel-node index",
+    "test": "SET NODE_ENV=test&& nodemon --exec mocha --require node_modules/@babel/register"
+  },
+  "author": "Karen",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.24.6",
+    "@babel/core": "^7.24.6",
+    "@babel/node": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "@babel/register": "^7.24.6",
+    "body-parser": "^1.20.2",
+    "chai": "^5.1.1",
+    "chai-http": "^4.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "faker": "^6.6.6",
+    "mocha": "^10.4.0",
+    "mysql2": "^3.9.9",
+    "nodemon": "^3.1.2",
+    "register": "^0.0.0"
+  }
+}
