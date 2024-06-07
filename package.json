@@ -1,7 +1,7 @@
 {
   "name": "karen",
   "version": "1.0.0",
-  "description":"myapi",
+  "description": "myapi",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -26,5 +26,8 @@
     "mysql2": "^3.9.9",
     "nodemon": "^3.1.2",
     "register": "^0.0.0"
+  },
+  "devDependencies": {
+    "Faker": "^0.7.2"
   }
 }

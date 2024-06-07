@@ -8,8 +8,8 @@ export default class infoController{
         try{
             connection=await mysql.createConnection(db)
             const[result]=await connection.execute("SELECT * FROM bob")
-            console.log(result)
-            res.json(result)
+            //console.log(result)
+            //res.json(result)
         }
         catch(error){
             res.status(500).json({'Error':error.message})
@@ -25,11 +25,31 @@ export default class infoController{
         try{
             const {title, descrip,imag,leftColor,rightColor}=req.body
             connection=await mysql.createConnection(db)
-            const[inser]=await connection.execute("INSERT INTO bob (title, descrip,imag,leftColor,rightColor) VALUES(?, ?, ?, ?, ?)",(title, descrip,imag,leftColor,rightColor))
+            const [inser]=await connection.execute("INSERT INTO bob (title, descrip,imag,leftColor,rightColor) VALUES(?, ?, ?, ?, ?)",[title, descrip,imag,leftColor,rightColor])
             console.log(inser)
-            res.json(inser)
+            //res.json(inser)
         }
         catch(error){
+            res.status(500).json({'Error':error.message})
+        }
+        finally{
+            if(connection){
+                await connection.end()
+            }
+        }
+
+    }
+    static async details(req,res){
+        let connection;
+        try{
+            const idbob =req.params.id
+            connection=await mysql.createConnection(db)
+            const [respond]=await connection.execute("SELECT * FROM bob WHERE id_bob=?",[idbob])
+            console.log(respond)
+            res.status(200).json({respond})
+        }
+        catch(error){
+            console.error('error', error.message)
             res.status(500).json({'Error':error.message})
         }
         finally{
