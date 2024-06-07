@@ -8,8 +8,8 @@ export default class infoController{
         try{
             connection=await mysql.createConnection(db)
             const[result]=await connection.execute("SELECT * FROM bob")
-            //console.log(result)
-            //res.json(result)
+            console.log(result)
+            res.json(result)
         }
         catch(error){
             res.status(500).json({'Error':error.message})
@@ -27,7 +27,7 @@ export default class infoController{
             connection=await mysql.createConnection(db)
             const [inser]=await connection.execute("INSERT INTO bob (title, descrip,imag,leftColor,rightColor) VALUES(?, ?, ?, ?, ?)",[title, descrip,imag,leftColor,rightColor])
             console.log(inser)
-            //res.json(inser)
+            res.json(inser)
         }
         catch(error){
             res.status(500).json({'Error':error.message})
